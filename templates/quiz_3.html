@@ -1,0 +1,89 @@
+{% extends "layout.html" %} {% block content %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='quiz_style.css') }}"
+/>
+
+<script src="{{ url_for('static', filename='quiz_3.js') }}"></script>
+
+<div class="row">
+  <div class="col-md-12"><br /></div>
+</div>
+<div class="row">
+  {% if learning_data['1']['curr_os'] == 'macos'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/highlight_macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/highlight_windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %}
+</div>
+<div class="row">
+  <br />
+  <br />
+</div>
+<div class="cards-container">
+  <h1>Part 3: True or False?</h1>
+  <form action="/quiz/3" method="POST" id="quizForm">
+    <div class="question">
+      <p>
+        1. You can refresh a webpage in most browsers using the shortcut Ctrl +
+        R.
+      </p>
+      <input type="radio" id="q1-true" name="q1" value="true" />
+      <label for="q1-true">True</label>
+      <input type="radio" id="q1-false" name="q1" value="false" />
+      <label for="q1-false">False</label>
+    </div>
+    <div class="question">
+      <p>
+        2. The keyboard shortcut Ctrl + Shift + N opens a new incognito window
+        in Google Chrome.
+      </p>
+      <input type="radio" id="q2-true" name="q2" value="true" />
+      <label for="q2-true">True</label>
+      <input type="radio" id="q2-false" name="q2" value="false" />
+      <label for="q2-false">False</label>
+    </div>
+    <div class="question">
+      <p>3. Shift+B will make your text bold.</p>
+      <input type="radio" id="q3-true" name="q3" value="true" />
+      <label for="q3-true">True</label>
+      <input type="radio" id="q3-false" name="q3" value="false" />
+      <label for="q3-false">False</label>
+    </div>
+    <button type="submit" class="button-link">Submit</button>
+  </form>
+  <a
+    href="/quiz/4"
+    class="button-link next-quiz-button"
+    id="nextQuiz"
+    style="display: none"
+    >Next Quiz</a
+  >
+  <div id="resultMessage"></div>
+</div>
+
+{% endblock %}

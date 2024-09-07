@@ -1,0 +1,154 @@
+body {
+  font-family: "Georgia", serif;
+  background-color: #adbbda;
+}
+
+.center {
+  padding-top: 25%;
+  text-align: center;
+}
+
+.next {
+  text-align: right;
+  padding-top: 200px;
+}
+
+.title {
+  text-align: center;
+}
+
+.module-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.module-text {
+  margin-right: 40px;
+  font-weight: bold;
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.module-text {
+  margin-right: 20px; /* Space between the text and the button */
+}
+
+.navigation-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navigation-button:hover {
+  background-color: #0056b3;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+
+.card {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  width: 900px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card:hover .video-link {
+  display: block;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  white-space: nowrap;
+}
+
+.video-link {
+  display: none;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.shortcut-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.function,
+.shortcut {
+  font-weight: bold;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 7px 20px;
+  margin: 20px 5px;
+  border-color: #595959;
+  border-radius: 10px;
+  background-color: #4a66a4;
+  background-blend-mode: normal;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+  /* background-color: #4d47b8; */
+  background-blend-mode: normal;
+  color: white;
+}
+
+.quiz-link {
+  /* display: inline-block; */
+  float: right;
+  width: 75px;
+  padding: 5px;
+  /* margin: 20px 5px; */
+  border-color: #595959;
+  border-radius: 10px;
+  background-color: #4a66a4;
+  background-blend-mode: normal;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.quiz-link:hover {
+  color: white;
+  background-blend-mode: normal;
+}

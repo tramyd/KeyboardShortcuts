@@ -1,0 +1,96 @@
+{% extends "layout.html" %} {% block content %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='quiz_style.css') }}"
+/>
+<script src="{{ url_for('static', filename = 'quiz_1.js') }}"></script>
+
+<form action="{{ url_for('quiz_1') }}" method="POST">
+  <!-- HEADER ------------------------------>
+  <div class="row">
+    <div class="col-md-12"><br /></div>
+  </div>
+  <div class="row">
+    {% if learning_data['1']['curr_os'] == 'macos'%}
+    <div class="col-md-6">
+      os:
+      <img
+        src="{{url_for('static', filename='/logos/highlight_macos.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+      <img
+        src="{{url_for('static', filename='/logos/windows.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+    </div>
+    {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+    <div class="col-md-6">
+      os:
+      <img
+        src="{{url_for('static', filename='/logos/macos.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+      <img
+        src="{{url_for('static', filename='/logos/highlight_windows.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+    </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    <br />
+    <br />
+  </div>
+  <!-- MAIN CONTENT ---------------------------->
+  <div class="row">
+    <h5>
+      Part 1 (Warm up question): Replicate this in the text box below (use copy, paste, bold,
+      italicize, and underline shortcuts):
+    </h5>
+  </div>
+  <div class="row">
+    <br />
+  </div>
+  <div class="row" style="width: 1000px; margin: 0 auto">
+    <h2><u>User</u> <strong>Interface</strong> <em>Design</em></h2>
+  </div>
+  <div class="row">
+    <br />
+    <br />
+  </div>
+  <div
+    name="user_input"
+    id="user_input"
+    contenteditable="true"
+    style="
+      border: 2px solid gray;
+      min-height: 75px;
+      width: 500px;
+      margin: 0 auto;
+      padding: 15px;
+    "
+  >
+    User Interface Design
+  </div>
+  <input type="hidden" id="hidden_input" name="user_input" />
+  <button type="submit" class="button-link">Submit and Check</button>
+</form>
+<p style="color: {{ 'green' if message.startswith('Nice') else 'red' }}">
+  {{ message }}
+</p>
+<a
+  href="/quiz/2"
+  class="button-link"
+  style="{{ 'display:block;' if message and message.startswith('Nice') else 'display:none;' }}"
+  >Next Quiz</a
+>
+
+<!-- <div class="row">
+    <p>Correct answers so far: {{ correct_count }}</p>
+</div> -->
+
+{% endblock %}

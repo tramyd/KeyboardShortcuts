@@ -1,0 +1,354 @@
+{% extends "layout.html" %} {% block content %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='quiz_style.css') }}"
+/>
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='quiz_2.js') }}"
+></script>
+
+<form action="/quiz/2" method="POST" id="quizForm">
+  <!-- HEADER ------------------------------>
+  <div class="row">
+    <div class="col-md-12"><br /></div>
+  </div>
+  <div class="row">
+    {% if learning_data['1']['curr_os'] == 'macos'%}
+    <div class="col-md-6">
+      os:
+      <img
+        src="{{url_for('static', filename='/logos/highlight_macos.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+      <img
+        src="{{url_for('static', filename='/logos/windows.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+    </div>
+    {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+    <div class="col-md-6">
+      os:
+      <img
+        src="{{url_for('static', filename='/logos/macos.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+      <img
+        src="{{url_for('static', filename='/logos/highlight_windows.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+    </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    <br />
+    <br />
+  </div>
+  <!-- MAIN CONTENT -------------------------------------->
+  {% if learning_data['1']['curr_os'] == 'macos'%}
+  <div class="cards-container">
+    <div class="row">
+      <div class="col-md-12">
+        <fieldset>
+          <h1>Part 2: Multiple Choice</h1>
+
+          <p>1. Which of the following will add “.com” to the end of an URL?</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="urlExtension"
+              id="option1"
+              value="commandD"
+            />
+            <label class="form-check-label" for="option1"> Command + D </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="urlExtension"
+              id="option2"
+              value="ctrlD"
+            />
+            <label class="form-check-label" for="option2"> Ctrl + D </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="urlExtension"
+              id="option3"
+              value="enter"
+            />
+            <label class="form-check-label" for="option3">
+              Ctrl + Return
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="urlExtension"
+              id="option4"
+              value="altD"
+            />
+            <label class="form-check-label" for="option4"> Alt + D </label>
+          </div>
+
+          <p>2. Which of the following will close the current page?</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="pageClose"
+              id="option5"
+              value="commandZ"
+            />
+            <label class="form-check-label" for="option5"> Command + Z </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="pageClose"
+              id="option6"
+              value="w"
+            />
+            <label class="form-check-label" for="option6"> Command + W </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="pageClose"
+              id="option7"
+              value="ctrlZ"
+            />
+            <label class="form-check-label" for="option7"> Ctrl + Z </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="pageClose"
+              id="option8"
+              value="altW"
+            />
+            <label class="form-check-label" for="option8"> Alt + W </label>
+          </div>
+
+          <p>3. CMD + T does which of the following in the browser?</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="browserAction"
+              id="option9"
+              value="bookmark"
+            />
+            <label class="form-check-label" for="option9">
+              Bookmark current page
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="browserAction"
+              id="option10"
+              value="print"
+            />
+            <label class="form-check-label" for="option10">
+              Print current page
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="browserAction"
+              id="option11"
+              value="open"
+            />
+            <label class="form-check-label" for="option11">
+              Open new tab
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="browserAction"
+              id="option12"
+              value="close"
+            />
+            <label class="form-check-label" for="option12">
+              Close current tab
+            </label>
+          </div>
+        </fieldset>
+        <button type="submit" class="button-link">Submit</button>
+      </div>
+    </div>
+  </div>
+  {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+  <div class="cards-container">
+    <div class="row">
+      <div class="col-md-12">
+        <fieldset>
+          <h1>Part 2: Multiple Choice</h1>
+
+          <p>1. Which of the following will add “.com” to the end of an URL?</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="urlExtension"
+              id="option1"
+              value="commandD"
+            />
+            <label class="form-check-label" for="option1"> Command + D </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="urlExtension"
+              id="option2"
+              value="ctrlD"
+            />
+            <label class="form-check-label" for="option2"> Ctrl + D </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="urlExtension"
+              id="option3"
+              value="enter"
+            />
+            <label class="form-check-label" for="option3"> Ctrl + Enter </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="urlExtension"
+              id="option4"
+              value="altD"
+            />
+            <label class="form-check-label" for="option4"> Alt + D </label>
+          </div>
+
+          <p>2. Which of the following will close the current page?</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="pageClose"
+              id="option5"
+              value="commandZ"
+            />
+            <label class="form-check-label" for="option5"> Command + Z </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="pageClose"
+              id="option6"
+              value="w"
+            />
+            <label class="form-check-label" for="option6"> Ctrl + W </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="pageClose"
+              id="option7"
+              value="ctrlZ"
+            />
+            <label class="form-check-label" for="option7"> Ctrl + Z </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="pageClose"
+              id="option8"
+              value="altW"
+            />
+            <label class="form-check-label" for="option8"> Alt + W </label>
+          </div>
+
+          <p>3. Ctrl + T does which of the following in the browser?</p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="browserAction"
+              id="option9"
+              value="bookmark"
+            />
+            <label class="form-check-label" for="option9">
+              Bookmark current page
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="browserAction"
+              id="option10"
+              value="print"
+            />
+            <label class="form-check-label" for="option10">
+              Print current page
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="browserAction"
+              id="option11"
+              value="open"
+            />
+            <label class="form-check-label" for="option11">
+              Open new tab
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="browserAction"
+              id="option12"
+              value="close"
+            />
+            <label class="form-check-label" for="option12">
+              Close current tab
+            </label>
+          </div>
+        </fieldset>
+        <button type="submit" class="button-link">Submit</button>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</form>
+<a href="/quiz/3" class="next-quiz-button" id="nextQuiz" style="display: none"
+  >Next Quiz</a
+>
+<div>
+  <p id="resultMessage"></p>
+</div>
+
+{% endblock %}

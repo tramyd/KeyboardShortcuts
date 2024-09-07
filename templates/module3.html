@@ -1,0 +1,60 @@
+{% extends "layout.html" %} {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='module.css')}}" />
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'edit_text.js') }}"
+></script>
+
+<!-- HEADER (OS AND QUIZ LINK) ------------------------------------------>
+
+<div class="row">
+  <div class="col-md-12"><br /></div>
+</div>
+<div class="row">
+  {% if learning_data['1']['curr_os'] == 'macos'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/highlight_macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/highlight_windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %}
+  <div class="col-md-6">
+    <a class="quiz-link" href="/quiz">take quiz</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT ------------------------------------------>
+
+<div class="center">
+  <h4>MODULE 3</h4>
+  <div class="h1">DESKTOP</div>
+  <hr />
+  <div class="next">
+    <a class="button-link" href="/module3/1">START</a>
+  </div>
+</div>
+
+{% endblock %}

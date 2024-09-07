@@ -1,0 +1,17 @@
+.search-btn {
+  background-color: #4a66a4 !important;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-btn .fas {
+  color: white; /* White color for the icon */
+}
+
+.navbar_logo {
+  width: 200px;
+}
+
+.search_icon {
+  width: 20px;
+}

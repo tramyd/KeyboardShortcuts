@@ -1,0 +1,69 @@
+<!-- SLIDE 16 -->
+<!-- Team Member: Tony
+Date last updated: 4/17-->
+{% extends "layout.html" %} {% block content %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='quiz_style.css') }}"
+/>
+
+<div class="row">
+  <div class="col-md-12"><br /></div>
+</div>
+<div class="row">
+  {% if learning_data['1']['curr_os'] == 'macos'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/highlight_macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/highlight_windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %}
+</div>
+<div class="row">
+  <br />
+  <br />
+</div>
+<div class="cards-container">
+  <h2>Part 5: Select the keys for the "bookmark current page" shortcut</h2>
+
+  <div id="keyboard">
+    <button class="key" data-key="Command">Command</button>
+    <button class="key" data-key="Ctrl">Ctrl</button>
+    <button class="key" data-key="Alt">Alt</button>
+    <button class="key" data-key="Shift">Shift</button>
+    <button class="key" data-key="A">A</button>
+    <button class="key" data-key="S">S</button>
+    <button class="key" data-key="D">D</button>
+    <button class="key" data-key="F">F</button>
+    <button class="key" data-key="G">G</button>
+  </div>
+  <div>
+    <a href="/quiz/6" class="button-link" id="finishQuiz">Next</a>
+  </div>
+  <p id="status"></p>
+</div>
+
+<script src="{{ url_for('static', filename='quiz_5.js') }}"></script>
+{% endblock %}

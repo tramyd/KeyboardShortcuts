@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='quiz_style.css') }}">
+
+<div class="row">
+    <div class="col-md-12"><br /></div>
+  </div>
+  <div class="row">
+    {% if learning_data['1']['curr_os'] == 'macos'%}
+    <div class="col-md-6">
+      os:
+      <img
+        src="{{url_for('static', filename='/logos/highlight_macos.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+      <img
+        src="{{url_for('static', filename='/logos/windows.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+    </div>
+    {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+    <div class="col-md-6">
+      os:
+      <img
+        src="{{url_for('static', filename='/logos/macos.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+      <img
+        src="{{url_for('static', filename='/logos/highlight_windows.png')}}"
+        alt="Mac"
+        width="30px"
+      />
+    </div>
+    {% endif %}
+  </div>
+  <div class="row">
+    <br />
+    <br />
+  </div>
+  <div class="quiz-end-container">
+    <h2>Congrats, you completed the quiz!</h2>
+    <br>
+    <p class="score">Score: <h1>{{ score }}/{{ total_questions }}</h1></p>
+
+    <a href="{{ url_for('reset_quiz') }}" class="button-link">Try Again</a>
+    <a href="/" class="button-link">Return to Home</a>
+
+    <h3>Summary:</h3>
+    <ul style="text-align: left;">
+        {% for question in summary %}
+            <li>
+                <strong>Question {{ loop.index }}:</strong> {{ question.text | safe }}
+                <br>
+                Correct Answer: {{ question.correct_answer | safe }}
+            </li>
+        {% endfor %}
+    </ul>
+  </div>
+
+{% endblock %}

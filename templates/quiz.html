@@ -1,0 +1,51 @@
+{% extends "layout.html" %} {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+
+<div class="row">
+  <div class="col-md-12"><br /></div>
+</div>
+<div class="row">
+  {% if learning_data['1']['curr_os'] == 'macos'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/highlight_macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/highlight_windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %}
+</div>
+
+<div class="cards-container">
+  <div><h3>use the shortcuts learned to complete the following quiz</h3></div>
+  <div>
+    <h6>
+      there will be 5 questions, try your best and retake as many times as
+      needed! good luck
+    </h6>
+  </div>
+  <hr />
+  <a class="button-link" href="/quiz/1">START</a>
+</div>
+
+{% endblock %}

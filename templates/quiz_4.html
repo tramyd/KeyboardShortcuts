@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='quiz_style.css') }}" />
+
+<div class="row">
+  <div class="col-md-12"><br /></div>
+</div>
+<div class="row">
+  {% if learning_data['1']['curr_os'] == 'macos'%}
+  <div class="col-md-6">
+    os:
+    <img src="{{url_for('static', filename='/logos/highlight_macos.png')}}" alt="Mac" width="30px" />
+    <img src="{{url_for('static', filename='/logos/windows.png')}}" alt="Mac" width="30px" />
+  </div>
+  {% endif %}
+  {% if learning_data['1']['curr_os'] == 'windows'%}
+  <div class="col-md-6">
+    os:
+    <img src="{{url_for('static', filename='/logos/macos.png')}}" alt="Mac" width="30px" />
+    <img src="{{url_for('static', filename='/logos/highlight_windows.png')}}" alt="Mac" width="30px" />
+  </div>
+  {% endif %}
+</div>
+<div class="row">
+  <br />
+  <br />
+</div>
+<div class="cards-container">
+  <h1>Part 4: Match the actions with its shortcut</h1>
+  <div id="match-container">
+    <!-- Action buttons -->
+    <button class="action-button" data-match="ctrlT">new tab</button>
+    <button class="action-button" data-match="windowsM">minimize all apps</button>
+    <button class="action-button" data-match="windowsD">show or hide desktop</button>
+    <br /><br />
+    <!-- Shortcut buttons -->
+    <button class="shortcut-button" data-match="windowsM">windows m</button>
+    <button class="shortcut-button" data-match="ctrlT">ctrl t</button>
+    <button class="shortcut-button" data-match="windowsD">windows d</button>
+  </div>
+  <div id="resultMessage"></div>
+  <a href="/quiz/5" class="button-link" id="nextQuiz" style="display: none">Next Quiz</a>
+  <!-- Skip Button -->
+  <a href="/quiz/5" class="button-link" id="skipQuiz">Skip to Next Question</a>
+</div>
+
+<script src="{{ url_for('static', filename='quiz_4.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const actionButtons = document.querySelectorAll('.action-button');
+    const shortcutButtons = document.querySelectorAll('.shortcut-button');
+    let matches = 0;
+    
+    actionButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        checkMatch(this);
+      });
+    });
+    
+    shortcutButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        checkMatch(this);
+      });
+    });
+    
+    function checkMatch(button) {
+      const match = button.getAttribute('data-match');
+      document.querySelectorAll(`[data-match="${match}"]`).forEach(matchButton => {
+        matchButton.classList.toggle('matched');
+      });
+      matches = document.querySelectorAll('.matched').length;
+      if (matches === actionButtons.length * 2) { // All matched
+        document.getElementById('nextQuiz').style.display = 'inline';
+        document.getElementById('skipQuiz').style.display = 'none';
+      }
+    }
+  });
+</script>
+{% endblock %}

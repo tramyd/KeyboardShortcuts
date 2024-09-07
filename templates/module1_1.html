@@ -1,0 +1,93 @@
+{% extends "layout.html" %} {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+
+<!-- <script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'edit_text.js') }}"
+></script> -->
+
+<!-- HEADER ------------------------------------------>
+<div class="row">
+  <div class="col-md-12"><br /></div>
+</div>
+<div class="row">
+  {% if learning_data['1']['curr_os'] == 'macos'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/highlight_macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+  <div class="col-md-6">
+    os:
+    <img
+      src="{{url_for('static', filename='/logos/macos.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+    <img
+      src="{{url_for('static', filename='/logos/highlight_windows.png')}}"
+      alt="Mac"
+      width="30px"
+    />
+  </div>
+  {% endif %}
+  <div class="col-md-6">
+    <a class="quiz-link" href="/quiz">take quiz</a>
+  </div>
+</div>
+
+  <!-- MAIN CONTENT ------------------------------------------>
+  <div class="cards-container">
+    <div><h1>EDIT TEXT</h1> </div>
+    <div><p>try the shortcuts in the textarea</p></div>
+    <div class="row">
+      <div class="col-md-4">
+        {% if learning_data['1']['curr_os'] == 'macos'%}
+        <div class="shortcut-list">
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Copy:</strong> CMD + C</li>
+            <li class="list-group-item"><strong>Paste:</strong> CMD + V</li>
+            <li class="list-group-item"><strong>Cut:</strong> CMD + X</li>
+            <li class="list-group-item"><strong>Bold:</strong> CMD + B</li>
+            <li class="list-group-item"><strong>Underline:</strong> CMD + U</li>
+            <li class="list-group-item"><strong>Italicize:</strong> CMD + I</li>
+          </ul>
+        </div>
+        {% endif %} {% if learning_data['1']['curr_os'] == 'windows'%}
+        <div class="shortcut-list">
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Copy:</strong> CTRL + C</li>
+            <li class="list-group-item"><strong>Paste:</strong> CTRL + V</li>
+            <li class="list-group-item"><strong>Cut:</strong> CTRL + X</li>
+            <li class="list-group-item"><strong>Bold:</strong> CTRL + B</li>
+            <li class="list-group-item">
+              <strong>Underline:</strong> CTRL + U
+            </li>
+            <li class="list-group-item">
+              <strong>Italicize:</strong> CTRL + I
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-md-8">
+        <textarea class="form-control" rows="12" id="default">
+Hello, World!</textarea
+        >
+      </div>
+    </div>
+
+    <div><a class="button-link" href="/module2">next module</a></div>
+  </div>
+
+  {% endblock %}
+</div>
